@@ -86,7 +86,7 @@ export default {
     </div>
     <ImageInputPreview 
       :files="files"
-      @remove-file="idx => files.splice(idx)"
+      @remove-file="removeFile"
     />
   </div>
 </template>
@@ -103,14 +103,13 @@ export default {
 #dropzone {
   padding: 4rem;
   margin: 5px;
-  width: min(600px, 100%);
+  width: 30rem;
   text-align: center;
   background: #f7f7f7;
   border-radius: 10px;
   border-style: solid;
   border-color: #e5e5e5;
   cursor: pointer;
-
 }
 
 #file-input {

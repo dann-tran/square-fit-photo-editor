@@ -1,19 +1,17 @@
-<script setup lang="ts">
-import { onUnmounted } from "vue";
-
-const props = defineProps({
-  files: {type: Array as PropType<File[]>, required: true}
-});
-
-const fileUrls = computed(() => props.files.map(file => URL.createObjectURL(file)));
-
-const emit = defineEmits<{
-  (e: "removeFile", idx: number): void
-}>();
-
-onUnmounted(() => {
-  fileUrls.value.forEach(url => URL.revokeObjectURL(url));
-})
+<script lang="ts">
+export default {
+  props: {
+    files: {type: Array as PropType<File[]>, required: true}
+  },
+  computed: {
+    fileUrls() {
+      return this.files.map(file => URL.createObjectURL(file));
+    }
+  },
+  unmounted() {
+    this.fileUrls.forEach(url => URL.revokeObjectURL(url));
+  }
+}
 </script>
 
 <template>
