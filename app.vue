@@ -1,12 +1,12 @@
 <script lang="ts">
-import DropFileInput from "./components/DropFileInput.vue"
+import ImageInput from "./components/ImageInput.vue"
 
 export default {
   components: {
-    DropFileInput
+    ImageInput
   },
   setup() {
-    const fileinput = ref<InstanceType<typeof DropFileInput>>();
+    const fileinput = ref<InstanceType<typeof ImageInput>>();
     return {
       fileinput
     }
@@ -53,8 +53,23 @@ export default {
 </script>
 
 <template>
-  <div>
-    <DropFileInput ref="fileinput"/>
-    <button @click="exportImg">Export</button>
+  <div id="container">
+    <h1>Square-fit photo editor</h1>
+    <ImageInput ref="fileinput"/>
+    <button v-if="fileinput && fileinput.files.length" @click="exportImg">Export</button>
   </div>
 </template>
+
+<style scoped>
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+button {
+  width: min(5rem, 100%);
+  height: 2rem;
+}
+</style>
