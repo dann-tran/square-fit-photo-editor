@@ -113,11 +113,7 @@ export default {
 }
 
 #file-input {
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  display: none;
 }
 
 #file-input-label {
