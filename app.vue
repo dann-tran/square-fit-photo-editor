@@ -53,23 +53,49 @@ export default {
 </script>
 
 <template>
-  <div id="container">
+  <div id="app-container">
     <h1>Square-fit photo editor</h1>
-    <ImageInput ref="fileinput"/>
+    <ImageInput ref="fileinput" class="image-input"/>
     <button v-if="fileinput && fileinput.files.length" @click="exportImg">Export</button>
   </div>
 </template>
 
 <style scoped>
-#container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+#app-container {
+  width: min(100vw, 30rem);
+  height: 98vh;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0 1.5rem;
+}
+
+.image-input {
+  margin-bottom: 1.5rem;
 }
 
 button {
   width: min(5rem, 100%);
   height: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4.5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<style global>
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+#__nuxt {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: #121212;
 }
 </style>

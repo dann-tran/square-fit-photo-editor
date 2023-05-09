@@ -62,7 +62,7 @@ export default {
 </script>
 
 <template>
-  <div id="container">
+  <div id="image-input-container">
     <div
       id="dropzone"
       @dragover="handleDragOver"
@@ -92,23 +92,23 @@ export default {
 </template>
 
 <style scoped>
-#container {
+#image-input-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 1rem;
+  width: 100%;
 }
 
 #dropzone {
-  padding: 4rem;
-  margin: 5px;
-  width: 30rem;
+  padding: 3rem 0;
+  width: 100%;
   text-align: center;
-  background: #f7f7f7;
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   border-style: solid;
-  border-color: #e5e5e5;
+  border-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
 }
 

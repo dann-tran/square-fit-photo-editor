@@ -32,41 +32,33 @@ export default {
 
 <style scoped>
 #preview-container {
-  /* margin: 0 auto; */
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 600px) {
-  #preview-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  width: 100%;
 }
 
 .preview-card {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  height: 120px;
   width: 100%;
-  border-style: solid;
-  border-color: #e2e2e2;
-  border-radius: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.75rem 0;
+}
+
+.preview-card:last-of-type {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 img {
-  height: 100px;
-  width: 100px;
+  height: 4rem;
+  width: 4rem;
   object-fit: contain;
   background-color: black;
-  margin: 0.5rem;
 }
 
 button {
-  color: rgb(171, 171, 171);
   background-color: transparent;
   border: none !important;
   margin: 0.5rem;
+  font-size: x-large;
 }
 </style>
