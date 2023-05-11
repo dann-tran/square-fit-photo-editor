@@ -18,6 +18,13 @@ export default {
       invalidFiles: [] as File[],
     }
   },
+  computed: {
+    dropzoneText() {
+      return this.isDragging 
+        ? "Release to drop images here" 
+        : "Drop images here or click to import";
+    }
+  },
   methods: {
     handleDragOver(e: DragEvent) {
       e.preventDefault();
@@ -79,10 +86,7 @@ export default {
         ref="file"
         accept=".jpg,.jpeg,.png"
       />
-      <label for="file-input" id="file-input-label">
-        <div v-if="isDragging">Release to drop files here.</div>
-        <div v-else>Drop files here or click to import</div>
-      </label>
+      <div>{{ dropzoneText }}</div>
     </div>
     <ImageInputPreview 
       :files="files"
@@ -114,9 +118,5 @@ export default {
 
 #file-input {
   display: none;
-}
-
-#file-input-label {
-  cursor: pointer;
 }
 </style>
